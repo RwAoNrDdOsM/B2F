@@ -1,0 +1,11 @@
+mod = [
+	"RegrowthBloodlust"
+]
+
+package = [
+	"resource_packages/RegrowthBloodlust/RegrowthBloodlust"
+]
+
+lua = [
+	"scripts/mods/RegrowthBloodlust/*"
+]
