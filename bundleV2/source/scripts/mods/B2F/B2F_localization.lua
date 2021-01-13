@@ -38,4 +38,16 @@ return {
 	scavenger_description = {
 		en = "Enables/Disables Scavenger"
 	},
+	scavenger_proc_chance = {
+		en = "Scavenger Proc Chance"
+	},
+	scavenger_proc_chance_description = {
+		en = "0 is 0%%, 1 is 100%%. Changes Scavenger Proc Chance. Require Map Reload."
+	},
+	scavenger_ammo_regen = {
+		en = "Scavenger Ammo Return"
+	},
+	scavenger_ammo_regen_description = {
+		en = "0 is 0%%, 1 is 100%%. Changes how much Ammo you recieve from Scavenger"
+	},
 }

@@ -95,7 +95,7 @@ ProcFunctions.scavenger_get_ammo_on_kill = function (player, buff, params)
 			local right_hand_ammo_extension = ScriptUnit.has_extension(right_unit_1p, "ammo_system")
 			local left_hand_ammo_extension = ScriptUnit.has_extension(left_unit_1p, "ammo_system")
 			local ammo_extension = right_hand_ammo_extension or left_hand_ammo_extension
-			local ammo_bonus_fraction = buff_template.ammo_bonus_fraction
+			local ammo_bonus_fraction = mod:get("scavenger_ammo_regen") --buff_template.ammo_bonus_fraction
 			local ammo_amount = math.max(math.round(ammo_extension:max_ammo() * ammo_bonus_fraction), 1)
 			if ammo_extension then
 				ammo_extension:add_ammo_to_reserve(ammo_amount)
@@ -162,7 +162,7 @@ BuffTemplates.scavenger_vt1 = {
 	name = "scavenger_vt1",
 	buffs = {
 		{
-			proc_chance = 0.07,
+			proc_chance = mod:get("scavenger_proc_chance") or 0.07,
 			event_buff = true,
 			event = "on_damage_dealt",
 			buff_func = "scavenger_get_ammo_on_kill",

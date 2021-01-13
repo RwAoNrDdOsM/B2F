@@ -29,6 +29,20 @@ return {
 				type          = "checkbox",
 				default_value = false,
 			},
+			{
+				setting_id      = "scavenger_proc_chance",
+				type            = "numeric",
+				default_value   = 0.07,
+				range           = {0, 1},
+				decimals_number = 3,
+			},
+			{
+				setting_id      = "scavenger_ammo_regen",
+				type            = "numeric",
+				default_value   = 0.05,
+				range           = {0, 1},
+				decimals_number = 3,
+			},
 		}
 	}
 }
