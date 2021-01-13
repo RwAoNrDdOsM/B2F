@@ -1,7 +1,7 @@
-local mod = get_mod("RegrowthBloodlust")
+local mod = get_mod("B2F")
 
 return {
-	name = "B2F - Regrowth & Bloodlust",
+	name = "B2F",
 	description = mod:localize("mod_description"),
 	is_togglable = true,
 	options = {
@@ -23,6 +23,11 @@ return {
 					{text = "regrowth_vt1",   value = false, show_widgets = {}},
 					{text = "bloodlust_vt1",   value = true, show_widgets = {}},
 				}
+			},
+			{
+				setting_id    = "scavenger",
+				type          = "checkbox",
+				default_value = false,
 			},
 		}
 	}

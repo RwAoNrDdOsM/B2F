@@ -1,6 +1,6 @@
 return {
 	mod_description = {
-		en = "Changes the level 5 health recovery talents to be like their Vermintide 1 counterparts."
+		en = "Back to Fundamentals mod"
 	},
 	regrowth_vt1 = {
 		en = "Regrowth"
@@ -31,5 +31,11 @@ return {
 	},
 	ranged = {
 		en = "Ranged"
+	},
+	scavenger = {
+		en = "Scavenger"
+	},
+	scavenger_description = {
+		en = "Enables/Disables Scavenger"
 	},
 }
