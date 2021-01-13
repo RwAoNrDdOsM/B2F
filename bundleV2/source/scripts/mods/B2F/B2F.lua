@@ -157,6 +157,7 @@ BuffTemplates.bloodlust_vt1_ranged = {
 		}
 	}
 }
+
 --Scavenger
 BuffTemplates.scavenger_vt1 = {
 	name = "scavenger_vt1",
@@ -171,7 +172,7 @@ BuffTemplates.scavenger_vt1 = {
 	}
 }
 -- Adding buffs through talent
-mod:hook_origin(TalentExtension, "apply_buffs_from_talents", function (self, talent_ids)
+mod:hook(TalentExtension, "apply_buffs_from_talents", function (func, self, talent_ids)
 	local hero_name = self._hero_name
 	local buff_extension = self.buff_extension
 	local player = self.player
@@ -218,4 +219,34 @@ end)
 --Removing traits and properties
 mod:hook(GearUtils, "get_property_and_trait_buffs", function (func, backend_items, backend_id, buffs_table, only_no_wield_required)
     return buffs_table
+end)
+
+--dodge stam regen delay
+mod:hook_safe(GenericStatusExtension, "add_fatigue_points", function(self, type)
+	if type == "action_dodge" then
+	  local t = Managers.time:time("game")
+	  self.last_fatigue_gain_time = t - 0.6
+	end
+ end)
+
+--boss/lord damage multiplier
+mod:hook(DamageUtils, "calculate_damage", function(func, damage_output, target_unit, attacker_unit, hit_zone_name,
+	original_power_level, boost_curve, boost_damage_multiplier, is_critical_strike, damage_profile, target_index, backstab_multiplier, damage_source)
+		local dmg = func(damage_output, target_unit, attacker_unit, hit_zone_name, original_power_level,
+		boost_curve, boost_damage_multiplier, is_critical_strike, damage_profile, target_index, backstab_multiplier, damage_source)
+	
+		if target_unit then
+			local breed = Unit.get_data(target_unit, "breed")
+			if breed and breed.boss then
+				dmg = dmg * 125 / 100
+				return dmg
+			end
+		end
+	
+		return dmg
+end)
+
+--no invisibility
+mod:hook(GenericStatusExtension, "set_invisible", function (func, self, invisible, force_third_person)
+    return
 end)
