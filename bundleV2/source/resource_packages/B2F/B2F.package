@@ -1,0 +1,11 @@
+mod = [
+	"B2F"
+]
+
+package = [
+	"resource_packages/B2F/B2F"
+]
+
+lua = [
+	"scripts/mods/B2F/*"
+]
