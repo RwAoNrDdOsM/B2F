@@ -217,9 +217,9 @@ mod:hook(TalentExtension, "apply_buffs_from_talents", function (func, self, tale
 end)
 
 --Removing traits and properties
-mod:hook(GearUtils, "get_property_and_trait_buffs", function (func, backend_items, backend_id, buffs_table, only_no_wield_required)
+--[[mod:hook(GearUtils, "get_property_and_trait_buffs", function (func, backend_items, backend_id, buffs_table, only_no_wield_required)
     return buffs_table
-end)
+end)]]
 
 --dodge stam regen delay
 mod:hook_safe(GenericStatusExtension, "add_fatigue_points", function(self, type)
